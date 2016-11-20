@@ -1,0 +1,29 @@
+> source("best.R")
+> best("SC", "heart attack")
+[1] "MUSC MEDICAL CENTER"
+> best("NY", "pneumonia")
+[1] "MAIMONIDES MEDICAL CENTER"
+> best("AK", "pneumonia")
+[1] "YUKON KUSKOKWIM DELTA REG HOSPITAL"
+> source("rankhospital.R")
+> rankhospital("NC", "heart attack", "worst")
+[1] "WAYNE MEMORIAL HOSPITAL"
+> rankhospital("WA", "heart attack", 7)
+[1] "YAKIMA VALLEY MEMORIAL HOSPITAL"
+> rankhospital("TX", "pneumonia", 10)
+[1] "PARKVIEW REGIONAL HOSPITAL"
+> rankhospital("NY", "heart attack", 7)
+[1] "BELLEVUE HOSPITAL CENTER"
+> source("rankall.R")
+> r <- rankall("heart attack", 4)
+There were 50 or more warnings (use warnings() to see the first 50)
+> as.character(subset(r, state == "HI")$hospital)
+[1] "CASTLE MEDICAL CENTER"
+> r <- rankall("pneumonia", "worst")
+There were 46 warnings (use warnings() to see them)
+> as.character(subset(r, state == "NJ")$hospital)
+[1] "BERGEN REGIONAL MEDICAL CENTER"
+> r <- rankall("heart failure", 10)
+There were 50 or more warnings (use warnings() to see the first 50)
+> as.character(subset(r, state == "NV")$hospital)
+[1] "RENOWN SOUTH MEADOWS MEDICAL CENTER"
